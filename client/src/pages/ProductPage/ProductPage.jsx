@@ -52,10 +52,7 @@ function ProductPage() {
           <PriceProductPage price={product?.price} />
           <DescriptionProductPage description={product?.description} />
           <div className="product-page-basket-favorite">
-            <div className="product-page-basket">
-              <Basket product={product} />
-              <span className="product-page-basket-text"> ADD TO CART</span>
-            </div>
+            <Basket product={product} />
             <FavoriteIcon product={product} />
           </div>
         </div>
