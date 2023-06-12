@@ -1,22 +1,18 @@
 /* Start of cart header styles */
-
 .cart-header {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
-  width: 65vw;
-  margin: 0 0 0 15%;
+  width: 100%;
+  padding: 0 18rem 0 14rem;
 }
-
 .cart-header h1 {
-  font-family: "Abril Fatface";
+  font-family: "Abril Fatface", cursive;
   font-weight: 10;
   color: #fe97c4;
   font-size: 3em;
   line-height: 3.3rem;
 }
-
 .cart-header a {
   text-decoration: none;
   border: 2px solid #fe97c4;
@@ -24,7 +20,6 @@
   font-family: "Comfortaa";
   color: black;
 }
-
 .cart-header a:hover {
   color: white;
   background-color: #fe97c4;
@@ -33,13 +28,11 @@
 /* End of cart header styles */
 
 /* Start of cart bar styles */
-
 .cart-bar {
   padding-top: 50px;
   width: 80%;
   padding-left: 15%;
 }
-
 .cart-bar-items {
   font-family: "Comfortaa", cursive;
   font-size: 15px;
@@ -50,17 +43,13 @@
   font-size: 22px;
   letter-spacing: 1px;
 }
-
 /* End of  cart bar styles  */
 
 /* -------------------------------------- */
-
 /* Start of cart items styles*/
-
 .cart-items {
   margin: 0 20% 0 15%;
 }
-
 .cart-item {
   background: rgba(245, 245, 245, 0.7);
   display: flex;
@@ -68,7 +57,6 @@
   position: relative;
   flex-wrap: wrap;
 }
-
 .cart-item img {
   width: 200px;
   padding-left: 25px;
@@ -77,18 +65,15 @@
 .cart-item .title-price {
   display: flex;
 }
-
 .cart-item .product-name a {
   width: 200px;
   margin: 20px;
 }
-
 .cart-item .product-price {
   position: absolute;
   left: 35%;
   top: 50%;
 }
-
 .cart-item .cart-counter {
   position: absolute;
   right: 33%;
@@ -96,18 +81,15 @@
   border: 1px solid black;
   padding: 2px 15px;
 }
-
 .cart-item .cart-counter button {
   border: none;
   background-color: inherit;
   font-size: 20px;
   cursor: pointer;
 }
-
 .cart-item .cart-counter button:hover {
   color: #fe97c4;
 }
-
 .total-item-price {
   position: absolute;
   right: 6%;
@@ -115,7 +97,6 @@
   font-size: 2.1rem;
   color: #fe97c4;
 }
-
 .trash-icon {
   position: absolute;
   left: 15%;
@@ -123,21 +104,17 @@
   border: none;
   cursor: pointer;
 }
-
 .trash-icon:hover {
   color: #fe97c4;
 }
-
 .product-amount {
   font-family: "Comfortaa";
   font-size: 17px;
   font-weight: bold;
 }
-
 /* End of cart items styles */
 
 /* Start Responsive... */
-
 @media (max-width: 769px) {
   .cart-bar {
     display: none;
