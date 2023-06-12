@@ -4,7 +4,6 @@
 .categories {
   font-family: Comfortaa;
 }
-
 .product-page-title {
   font-family: "Abril Fatface";
   font-weight: 100;
@@ -25,11 +24,9 @@
   width: 0px;
   height: 0px;
 }
-
 .categories {
   margin-left: 12%;
 }
-
 .categories-div {
   display: flex;
   justify-content: space-between;
@@ -74,13 +71,11 @@
   color: white;
   background-color: #f19cbd;
 }
-
 .product-container {
   margin-left: 12%;
   width: 80vw;
   display: flex;
 }
-
 .product-display-grid {
   display: flex;
   gap: 1em;
@@ -193,7 +188,6 @@
 .in-stock-checkbox {
   font-size: 1.1rem;
 }
-
 .on-sale-checkbox:hover,
 .in-stock-checkbox:hover {
   color: #f095c4;
@@ -230,7 +224,6 @@
   padding-left: 0.5rem;
   margin-left: 0.5rem;
 }
-
 #min,
 #max,
 .on-sale-checkbox,
@@ -260,10 +253,7 @@ input[type="number"] {
   }
   .filter-block,
   .filter-reset-button {
-    margin-left: 10%;
-  }
-  .filter-reset-button {
-    width: 80vw;
+    margin-left: 20%;
   }
   .categories {
     margin-left: 33%;
@@ -278,8 +268,5 @@ input[type="number"] {
   #max {
     height: 1.5rem;
     width: 5.5rem;
-  }
-  .product-container {
-    margin-left: 6%;
   }
 }

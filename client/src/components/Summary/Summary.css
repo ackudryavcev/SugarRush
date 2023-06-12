@@ -41,7 +41,6 @@
   background-color: #fee588;
   padding: 10px;
 }
-
 .cart-payment-link:hover {
   font-style: italic;
 }
@@ -54,6 +53,6 @@
 @media (max-width: 768px) {
   .cart-summary {
     width: 80%;
-    margin: 60px 0 30px 10%;
+    margin: 30px 0 30px 10%;
   }
 }
