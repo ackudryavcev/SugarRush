@@ -63,3 +63,12 @@
     width: 80%;
   }
 }
+
+@media (max-width: 500px) {
+  .personal-input {
+    width: 100px;
+  }
+  .personal-info-button {
+    width: 100px;
+  }
+}

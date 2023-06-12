@@ -4,3 +4,7 @@ body {
   overflow-x: hidden;
   background-color: #fee588;
 }
+
+#root {
+  overflow: hidden;
+}
