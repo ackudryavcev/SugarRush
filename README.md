@@ -1,12 +1,12 @@
-`TODO: Add a nice screenshot of the app!`
+# Class 41 final project
 
-# Class XX final project
+![Sugar Rush](../../../../Desktop/sugar-rush.png)
 
 This is the final project for the HackYourFuture curriculum we did as a class using the MERN stack by following the agile methodology with our team and a group of mentors. A quick guide to what we built:
 
 > TODO: Add short description of the app
 
-`[Click here for the Demo version](TODO: add link)`
+`[Click here for the Demo version](https://candy-app.herokuapp.com/)`
 
 ## 1. Setup
 
@@ -32,12 +32,11 @@ client
 └── src
 |   └── __tests__
 |   └── __testUtils__
+|   └── assets
 |   └── components
 |   └── hooks
 |   └── pages
-|       └── __tests__
-|       └── components
-|   └── util
+|   └── store
 |   index.jsx
 cypress
 |   └── fixtures
@@ -46,14 +45,12 @@ cypress
 |   └── support
 server
 └── src
-    └── __tests__
-    └── __testUtils__
     └── controllers
     └── db
     └── models
     └── routes
     └── util
-    index.js
+    index.jsx
 ```
 
 ### 2.1 Client structure
@@ -61,11 +58,11 @@ server
 - `public` || public facing client code
 - `__tests__` || any `jest` tests for specific components will be in a `__tests__` folder on the same level
 - `__testUtils__` || any code that is only being used in the tests is put in the `__testUtils__` folder to separate that away from the rest of the code
+- `assets` || support files and pictures
 - `components` || all of our shared components that are used over multiple pages
 - `hooks` || all of our custom hooks
 - `pages` || the page components of our app, any routing will go between these components
-- `pages/components` || components used specifically on those pages
-- `util` || any utility functions that can be used anywhere on the client side
+- `store` || context, store cart and favorite products
 - `index.jsx` || the start point of the client
 
 ### 2.2 Cypress structure
@@ -77,8 +74,6 @@ server
 
 ### 2.3 Server structure
 
-- `__tests__` || any `jest` tests for the api endpoints as that is our testing strategy for the backend
-- `__testUtils__` || any code that is only being used in the tests is put in the `__testUtils__` folder to separate that away from the rest of the code
 - `controllers` || all of our controller functions that interact with the database
 - `db` || all of our configuration for the database
 - `models` || all of our `mongoose` models will be placed here
@@ -88,7 +83,7 @@ server
 
 ## 3. Stack / external libraries
 
-The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next to that we make use of the following extras:
+The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next to that we make use of the following extras: stripe, validator, react-icons
 
 ### 3.1 Configuration libraries
 
