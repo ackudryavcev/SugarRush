@@ -1,12 +1,12 @@
 # Class 41 final project
 
-![Sugar Rush](../../../../Desktop/sugar-rush.png)
+![Sugar Rush](./sugar-rush.png)
 
 This is the final project for the HackYourFuture curriculum we did as a class using the MERN stack by following the agile methodology with our team and a group of mentors. A quick guide to what we built:
 
-> TODO: Add short description of the app
+> Ecommerce website application - selling sweets from all over the world. Here you can choose and buy everything for a good mood.
 
-`[Click here for the Demo version](https://candy-app.herokuapp.com/)`
+[Click here for the Demo version](https://candy-app.herokuapp.com/)
 
 ## 1. Setup
 
