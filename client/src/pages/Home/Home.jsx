@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../../components/header/Header";
-import Promotion from "../../components/Promotion/Promotion";
 import Footer from "../../components/Footer/Footer";
-import Categories from "../../components/Category/Categories";
+import Promotion from "../../components/promotion/Promotion";
+import Categories from "../../components/category/Categories";
 
 const Home = () => {
   return (
