@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Cart from "./pages/Cart/Cart";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import AllProducts from "./pages/AllProducts/AllProducts";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Favorite from "./pages/FavoritePage/Favorites";
+import Cart from "./pages/Cart/Cart";
 
 const App = () => {
   return (
