@@ -7,8 +7,8 @@ import ProductOverview from "../../components/ProductDisplay/ProductOverview";
 import ProductTitleAndPrice from "../../components/ProductDisplay/ProductTitleAndPrice";
 import Summary from "../../components/Summary/Summary";
 import { Link } from "react-router-dom";
-import "./cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
+import "./cart.css";
 
 export default function Cart() {
   const { items, totalAmount, addItem, removeItem, resetCart } =
