@@ -5,7 +5,7 @@ import Basket from "../../components/ProductDisplay/Basket";
 import ProductTitleAndPrice from "../../components/ProductDisplay/ProductTitleAndPrice";
 import Rating from "../../components/ProductDisplay/Rating";
 import Footer from "../../components/Footer/Footer";
-import { FavoritesContext } from "../../components/Context/FavoritesContext";
+import { FavoritesContext } from "../../store/FavoritesContext";
 import FavoriteIcon from "../../components/ProductDisplay/FavoriteIcon";
 import "./Favorite.css";
 import { Link } from "react-router-dom";

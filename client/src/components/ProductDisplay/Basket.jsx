@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import PropTypes from "prop-types";
 import { CartContext } from "../../store/Context";
-import "./basket.css";
 
 const Basket = ({ product }) => {
   const cartCtx = useContext(CartContext);
@@ -17,8 +16,8 @@ const Basket = ({ product }) => {
   };
 
   return (
-    <div onClick={submitHandler} className="basket-block">
-      <span className="basket-span">
+    <div onClick={submitHandler} style={{ cursor: "pointer" }}>
+      <span style={{ fontSize: "20px" }}>
         {isInCart ? (
           <FiShoppingCart size={40} color="#f095c4" />
         ) : (

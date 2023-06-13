@@ -1,6 +1,6 @@
 import React from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import { useFavorites } from "../Context/FavoritesContext";
+import { useFavorites } from "../../store/FavoritesContext";
 import PropTypes from "prop-types";
 
 const FavoriteIcon = ({ product }) => {

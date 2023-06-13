@@ -10,10 +10,14 @@ function SearchBar() {
   const handleInputChange = async (event) => {
     const word = event.target.value;
     await setSearchWord(word);
-    if (word === "") {
+    setSuggestions(word === "" ? [] : showSuggestions(word));
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+      setSearchWord("");
       setSuggestions([]);
-    } else {
-      setSuggestions(showSuggestions(word));
     }
   };
 
@@ -24,29 +28,21 @@ function SearchBar() {
         className="header-search-input"
         value={searchWord}
         onChange={handleInputChange}
-        onKeyDown={(event) => {
-          if (event.key === "Enter") {
-            handleSearch();
-            setSearchWord("");
-            setSuggestions([]);
-          }
-        }}
+        onKeyDown={handleKeyDown}
       ></input>
       <div className="header-search-suggestion-block ">
         {suggestions &&
-          suggestions.slice(0, 5).map((suggestion, index) => {
-            return (
-              <div key={index}>
-                <Link
-                  to={`/product/${suggestion._id}`}
-                  className="header-search-suggestion"
-                  key={index}
-                >
-                  {suggestion.productName}
-                </Link>
-              </div>
-            );
-          })}
+          suggestions.slice(0, 5).map((suggestion, index) => (
+            <div key={index}>
+              <Link
+                to={`/product/${suggestion._id}`}
+                className="header-search-suggestion"
+                key={index}
+              >
+                {suggestion.productName}
+              </Link>
+            </div>
+          ))}
       </div>
     </>
   );

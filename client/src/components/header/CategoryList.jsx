@@ -12,7 +12,7 @@ function CategoryList({ page }) {
     setCategories(response.result);
   });
 
-  const clickArrow = () => {
+  const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
 
@@ -21,18 +21,32 @@ function CategoryList({ page }) {
     return cancelFetch;
   }, []);
 
+  const renderCategories = () => {
+    if (!categories) return null;
+
+    return categories.map((category) => (
+      <li
+        className="header-category-list-item"
+        key={category._id}
+        value={category.categoryName}
+      >
+        <Link to={{ pathname: `/products/${category.categoryName}` }}>
+          {category.categoryName}
+        </Link>
+      </li>
+    ));
+  };
+
   return (
     <menu
-      className={
-        page === "allProducts"
-          ? "header-category-list-block invisible"
-          : "header-category-list-block"
-      }
+      className={`header-category-list-block ${
+        page === "allProducts" ? "invisible" : ""
+      }`}
     >
       <p className="header-category-title">Categories</p>
 
       <MdExpandMore
-        onClick={clickArrow}
+        onClick={toggleVisibility}
         className="header-category-arrow"
         alt="arrow"
         size={30}
@@ -43,24 +57,7 @@ function CategoryList({ page }) {
           id="category-select"
           className="header-category-list"
         >
-          {categories &&
-            categories.map((category) => {
-              return (
-                <li
-                  className="header-category-list-item"
-                  key={category._id}
-                  value={category.categoryName}
-                >
-                  <Link
-                    to={{
-                      pathname: `/products/${category.categoryName}`,
-                    }}
-                  >
-                    {category.categoryName}
-                  </Link>
-                </li>
-              );
-            })}
+          {renderCategories()}
         </ul>
       )}
     </menu>

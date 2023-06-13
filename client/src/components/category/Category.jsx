@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./categories.css";
 import { Link } from "react-router-dom";
+import "./categories.css";
 
 export default function Category({ image, categoryName, description }) {
   const link = `/products/${categoryName}`;

@@ -1,7 +1,8 @@
 import React from "react";
 import "./Footer.css";
 import Logo from "../header/Logo";
-import Socialmedia from "../Socialmedia";
+import Socialmedia from "./Socialmedia";
+
 function Footer() {
   return (
     <footer>
@@ -29,7 +30,6 @@ function Footer() {
           <li>Copyright information:</li>
           <li>&copy;2023 Sugar Rush. All rights reserved</li>
           <li>
-            {" "}
             Created with <span className="heart">&#10084;</span>| HYF Class41
             Team 1
           </li>

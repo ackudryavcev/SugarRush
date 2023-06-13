@@ -29,34 +29,35 @@ function PersonalInfo({ setPersonalData, setIsCorrectPersonalData }) {
   };
 
   const handleSubmit = async (event) => {
-    let isSuccess = true;
     event.preventDefault();
     if (validateForm()) {
       try {
         const validatedAddress = await checkAddress(formData);
-        if (validatedAddress.addressLine1 === "undefined undefined") {
-          isSuccess = false;
-          setWarnData((prevState) => ({ ...prevState, addressLine1: true }));
-        }
-        if (validatedAddress.city === undefined) {
-          isSuccess = false;
-          setWarnData((prevState) => ({ ...prevState, city: true }));
-        }
-        if (validatedAddress.postalCode === undefined) {
-          isSuccess = false;
-          setWarnData((prevState) => ({ ...prevState, postalCode: true }));
-        }
-        if (validatedAddress.country === undefined) {
-          isSuccess = false;
-          setWarnData((prevState) => ({ ...prevState, country: true }));
-        }
 
-        if (isSuccess) {
+        const {
+          addressLine1: validatedAddressLine1,
+          city: validatedCity,
+          postalCode: validatedPostalCode,
+          country: validatedCountry,
+        } = validatedAddress;
+
+        if (validatedAddressLine1 === "undefined undefined") {
+          setWarnData((prevState) => ({
+            ...prevState,
+            addressLine1: true,
+          }));
+        } else if (!validatedCity) {
+          setWarnData((prevState) => ({ ...prevState, city: true }));
+        } else if (!validatedPostalCode) {
+          setWarnData((prevState) => ({
+            ...prevState,
+            postalCode: true,
+          }));
+        } else if (!validatedCountry) {
+          setWarnData((prevState) => ({ ...prevState, country: true }));
+        } else {
           setPersonalData(formData);
           setIsCorrectPersonalData(true);
-        } else {
-          // eslint-disable-next-line no-console
-          console.log("need change");
         }
       } catch (error) {
         alert("There was an error validating the address.");
@@ -65,29 +66,34 @@ function PersonalInfo({ setPersonalData, setIsCorrectPersonalData }) {
   };
 
   const validateForm = () => {
-    if (
-      !formData.name ||
-      !formData.addressLine1 ||
-      !formData.city ||
-      !formData.postalCode ||
-      !formData.country ||
-      !formData.email
-    ) {
-      setWarnData({
-        name: !formData.name,
-        addressLine1: !formData.addressLine1,
-        city: !formData.city,
-        postalCode: !formData.postalCode,
-        country: !formData.country,
-        email: !formData.email,
-      });
-      return false;
-    }
+    const requiredFields = [
+      "name",
+      "addressLine1",
+      "city",
+      "postalCode",
+      "country",
+      "email",
+    ];
+
+    const newWarnData = {};
+
+    requiredFields.forEach((field) => {
+      if (!formData[field]) {
+        newWarnData[field] = true;
+      }
+    });
+
     if (!validator.isEmail(formData.email)) {
       alert("Please enter a valid email address.");
       return false;
     }
-    return true;
+
+    setWarnData((prevState) => ({
+      ...prevState,
+      ...newWarnData,
+    }));
+
+    return Object.keys(newWarnData).length === 0;
   };
 
   const checkAddress = async (formData) => {
@@ -111,101 +117,33 @@ function PersonalInfo({ setPersonalData, setIsCorrectPersonalData }) {
     }
   };
 
+  const renderInput = (name, label) => (
+    <div className="personal-form-div">
+      <label className="personal-form-label" htmlFor={name}>
+        {label}:
+      </label>
+      <input
+        type="text"
+        id={name}
+        name={name}
+        value={formData[name]}
+        onChange={handleInputChange}
+        className={
+          warnData[name] ? "input-warn personal-input" : "personal-input"
+        }
+      />
+    </div>
+  );
+
   return (
     <form onSubmit={handleSubmit} className="personal-form">
-      <div className="personal-form-div">
-        <label className="personal-form-label" htmlFor="name">
-          Name:
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          className={
-            warnData.name ? "input-warn personal-input" : "personal-input"
-          }
-        />
-      </div>
-      <div className="personal-form-div">
-        <label className="personal-form-label" htmlFor="addressLine1">
-          Address Line 1:
-        </label>
-        <input
-          type="text"
-          id="addressLine1"
-          name="addressLine1"
-          value={formData.addressLine1}
-          onChange={handleInputChange}
-          className={
-            warnData.addressLine1
-              ? "input-warn personal-input"
-              : "personal-input"
-          }
-        />
-      </div>
+      {renderInput("name", "Name")}
+      {renderInput("addressLine1", "Address Line 1")}
+      {renderInput("city", "City")}
+      {renderInput("postalCode", "Postal Code")}
+      {renderInput("country", "Country")}
+      {renderInput("email", "Email")}
 
-      <div className="personal-form-div">
-        <label className="personal-form-label" htmlFor="city">
-          City:
-        </label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          value={formData.city}
-          onChange={handleInputChange}
-          className={
-            warnData.city ? "input-warn personal-input" : "personal-input"
-          }
-        />
-      </div>
-      <div className="personal-form-div">
-        <label className="personal-form-label" htmlFor="postalCode">
-          Postal Code:
-        </label>
-        <input
-          type="text"
-          id="postalCode"
-          name="postalCode"
-          value={formData.postalCode}
-          onChange={handleInputChange}
-          className={
-            warnData.postalCode ? "input-warn personal-input" : "personal-input"
-          }
-        />
-      </div>
-      <div className="personal-form-div">
-        <label className="personal-form-label" htmlFor="country">
-          Country:
-        </label>
-        <input
-          type="text"
-          id="country"
-          name="country"
-          value={formData.country}
-          onChange={handleInputChange}
-          className={
-            warnData.country ? "input-warn personal-input" : "personal-input"
-          }
-        />
-      </div>
-      <div className="personal-form-div">
-        <label className="personal-form-label" htmlFor="email">
-          Email:
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          className={
-            warnData.email ? "input-warn personal-input" : "personal-input"
-          }
-        />
-      </div>
       <button className="personal-info-button" type="submit">
         PAY HERE
       </button>
