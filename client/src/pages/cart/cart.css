@@ -69,7 +69,7 @@
   flex-wrap: wrap;
 }
 
-.cart-item img {
+.cart-item a img {
   width: 200px;
   padding-left: 25px;
 }
