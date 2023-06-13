@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/Footer/Footer";
-import PersonalInfo from "../../components/personalInfo/PersonalInfo";
-import PaymentForm from "../../components/PaymentForm";
+import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
+import PaymentForm from "../../components/PaymentForm/PaymentForm";
 import { CartContext } from "../../store/Context";
 import { Link, useLocation } from "react-router-dom";
 import "./PaymentPage.css";

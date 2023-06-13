@@ -5,7 +5,7 @@ import CartProvider from "./store/Context";
 
 import AppWrapper from "./AppWrapper";
 import App from "./App";
-import { FavoritesProvider } from "./components/Context/FavoritesContext";
+import { FavoritesProvider } from "./store/FavoritesContext";
 
 ReactDOM.render(
   <FavoritesProvider>

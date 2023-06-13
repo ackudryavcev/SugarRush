@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import StripeCheckout from "react-stripe-checkout";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 const PaymentForm = ({ amount, setIsCorrectPayment, setPaymentError }) => {
   const [isLoading, setIsLoading] = useState(false);

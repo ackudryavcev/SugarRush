@@ -6,16 +6,21 @@ export const FavoritesContext = createContext([]);
 export const useFavorites = () => {
   const [favorites, setFavorites] = useContext(FavoritesContext);
 
+  const updateFavorites = (updatedFavorites) => {
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
   const addFavorite = (item) => {
     const updatedFavorites = [...favorites, item];
-    setFavorites(updatedFavorites);
+    updateFavorites(updatedFavorites);
   };
 
   const removeFavorite = (item) => {
     const updatedFavorites = favorites.filter(
       (favorite) => favorite._id !== item._id
     );
-    setFavorites(updatedFavorites);
+    updateFavorites(updatedFavorites);
   };
 
   const isFavorite = (item) => {
@@ -28,10 +33,6 @@ export const useFavorites = () => {
       setFavorites(JSON.parse(storedFavorites));
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
 
   return {
     favorites,
@@ -55,7 +56,8 @@ export const FavoritesProvider = (props) => {
 
   return (
     <FavoritesContext.Provider value={favoritesState}>
-      {props.children}
+      {" "}
+      {props.children}{" "}
     </FavoritesContext.Provider>
   );
 };
