@@ -6,7 +6,7 @@ import AllProducts from "./pages/AllProducts/AllProducts";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Favorite from "./pages/FavoritePage/Favorites";
-import Cart from "./pages/Cart/Cart";
+import Cart from "./pages/cart/Cart";
 
 const App = () => {
   return (
